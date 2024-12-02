@@ -24,13 +24,15 @@ export class InformationService {
       ...omit(createInformationDto, ['owner']),
       owner,
     });
+    console.log('create information: ', newInformtion);
     return this.informationRepository.save(newInformtion);
   }
 
   async findAll({ page, size }: BaseDTO) {
+    console.log('find information: ', { page, size });
     const data = await this.informationRepository.find({
-      skip: (page - 1) * size,
-      take: size,
+      skip: (1 * page - 1) * size,
+      take: 1 * size,
     });
     const total = await this.informationRepository.count();
     return { data, total };

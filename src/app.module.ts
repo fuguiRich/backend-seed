@@ -26,6 +26,7 @@ import { SeedModule } from './seed/seed.module';
       database: 'bob',
       entities: [User, Information, Site],
       autoLoadEntities: true,
+      logging: true,
       // synchronize: true,
       // dropSchema: true, //每次启动会删除表
     }),
