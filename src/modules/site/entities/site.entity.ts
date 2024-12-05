@@ -1,11 +1,6 @@
+import { BaseEntity } from 'src/common/entities/base.entity';
 import { User } from 'src/modules/users/entities/user.entity';
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Site extends BaseEntity {

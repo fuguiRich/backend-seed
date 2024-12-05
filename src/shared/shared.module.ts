@@ -18,15 +18,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           autoLoadModels: configService.get<boolean>('database.autoLoadModels'),
           synchronize: configService.get<boolean>('database.synchronize'),
           logging: configService.get('database.logging'),
-          cache: {
-            type: 'redis',
-            options: {
-              socket: {
-                host: configService.get<any>('bullRedis.host'),
-                port: 6379,
-              },
-            },
-          },
+          // cache: {
+          //   type: 'redis',
+          //   options: {
+          //     socket: {
+          //       host: configService.get<any>('bullRedis.host'),
+          //       port: 6379,
+          //     },
+          //   },
+          // },
         };
       },
       inject: [ConfigService],

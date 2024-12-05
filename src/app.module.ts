@@ -4,37 +4,28 @@ import { UsersModule } from './modules/users/users.module';
 import { InformationModule } from './modules/information/information.module';
 import { SiteModule } from './modules/site/site.module';
 
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Site } from './modules/site/entities/site.entity';
-import { Information } from './modules/information/entities/information.entity';
-import { User } from './modules/users/entities/user.entity';
-
 import { SeedModule } from './seed/seed.module';
+import { ConfigModule } from '@nestjs/config';
+import configuration from './config/configuration';
+import { SharedModule } from './shared/shared.module';
+import { UrlcontrolModule } from './modules/urlcontrol/urlcontrol.module';
 
 @Module({
   imports: [
-    // ConfigModule.forRoot({
-    //   isGlobal: true,
-    //   load: [configuration],
-    // }),
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'coin-admin-db-1',
-      port: 3306,
-      username: 'bobroot',
-      password: 'infromation@admin@bobroot',
-      database: 'bob',
-      entities: [User, Information, Site],
-      autoLoadEntities: true,
-      logging: true,
-      // synchronize: true,
-      // dropSchema: true, //每次启动会删除表
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [configuration],
     }),
+
+    SharedModule,
+
     UsersModule,
     InformationModule,
     SiteModule,
     SeedModule,
+    UrlcontrolModule,
   ],
+
   controllers: [],
   providers: [AppService],
 })

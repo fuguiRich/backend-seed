@@ -1,4 +1,6 @@
 import { Logger } from '@nestjs/common';
+import * as dev from './config.development';
+import * as production from './config.production';
 
 // 判断系统是否是开发环境
 export function isDev(): boolean {
@@ -9,9 +11,7 @@ export function isDev(): boolean {
 export default () => {
   let envConfig: IConfig = {};
   try {
-    envConfig = require(
-      `./config.${process.env.NODE_ENV || 'development'}`,
-    ).default;
+    envConfig = (isDev ? dev : production).default;
     //将文件上传路径绑定到环境变量上
     process.env.uploadPath = envConfig.uploadPath ?? '/upload';
   } catch (e) {

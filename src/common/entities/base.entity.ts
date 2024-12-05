@@ -1,12 +1,18 @@
 import { ApiHideProperty } from '@nestjs/swagger';
-import { CreateDateColumn,  UpdateDateColumn } from 'typeorm';
+import { CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 export class BaseEntity {
-  @CreateDateColumn()
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
   @ApiHideProperty()
   createTime: Date | string;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+  })
   @ApiHideProperty()
   updateTime: Date | string;
 }
