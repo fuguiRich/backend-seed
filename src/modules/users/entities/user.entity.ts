@@ -1,7 +1,13 @@
 import { BaseEntity } from 'src/common/entities/base.entity';
 import { Information } from 'src/modules/information/entities/information.entity';
 import { Site } from 'src/modules/site/entities/site.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Relation,
+} from 'typeorm';
 
 @Entity()
 export class User extends BaseEntity {

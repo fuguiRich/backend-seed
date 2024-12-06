@@ -1,53 +1,53 @@
 import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
 
-export class AddNewColumnToAll1733369357060 implements MigrationInterface {
+export class Init1733396792311 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
       'information',
       new TableColumn({
         name: 'createTime',
-        type: 'Date',
-        default: () => 'CURRENT_TIMESTAMP',
+        type: 'timestamp',
+        default: 'now()',
       }),
     );
     await queryRunner.addColumn(
       'information',
       new TableColumn({
         name: 'updateTime',
-        type: 'Date',
-        default: () => 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+        type: 'timestamp',
+        default: 'now()',
       }),
     );
     await queryRunner.addColumn(
       'user',
       new TableColumn({
         name: 'createTime',
-        type: 'Date',
-        default: () => 'CURRENT_TIMESTAMP',
+        type: 'timestamp',
+        default: 'now()',
       }),
     );
     await queryRunner.addColumn(
       'user',
       new TableColumn({
         name: 'updateTime',
-        type: 'Date',
-        default: () => 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+        type: 'timestamp',
+        default: 'now()',
       }),
     );
     await queryRunner.addColumn(
       'site',
       new TableColumn({
         name: 'createTime',
-        type: 'Date',
-        default: () => 'CURRENT_TIMESTAMP',
+        type: 'timestamp',
+        default: 'now()',
       }),
     );
     await queryRunner.addColumn(
       'site',
       new TableColumn({
         name: 'updateTime',
-        type: 'Date',
-        default: () => 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+        type: 'timestamp',
+        default: 'now()',
       }),
     );
   }
