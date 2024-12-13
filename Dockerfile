@@ -21,4 +21,6 @@ RUN npm install --production
 EXPOSE 3000
 EXPOSE 3306
 
+# RUN npm run migration:run
+
 CMD ["node", "/app/dist/main.js"]

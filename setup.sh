@@ -8,7 +8,7 @@ docker compose down || true;
 #构建容器
 docker compose build;
 #启动容器
-docker compose up -d;
+docker compose up -d ;
 #查看容器
 docker logs coin-admin-coin-admin-1;
 #对空间进行自动清理

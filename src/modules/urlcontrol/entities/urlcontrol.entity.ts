@@ -4,7 +4,7 @@ export class Urlcontrol extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'string', default: '' })
+  @Column({ type: 'string', default: 'www' })
   website: string;
 
   @Column({ type: 'string', default: '/api' })

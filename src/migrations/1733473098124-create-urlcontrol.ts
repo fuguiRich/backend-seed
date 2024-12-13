@@ -8,28 +8,28 @@ export class CreateUrlcontrol1733473098124 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'string',
+            type: 'int',
             isPrimary: true,
             isGenerated: true,
             generationStrategy: 'uuid',
           },
           {
             name: 'website',
-            type: 'string',
+            type: 'varchar',
             isNullable: false,
-            default: '',
+            default: '"www"',
           },
           {
             name: 'url',
-            type: 'string',
+            type: 'varchar',
             isNullable: false,
-            default: '/api',
+            default: '"/api"',
           },
           {
             name: 'methods',
-            type: 'string',
+            type: 'varchar',
             isNullable: false,
-            default: 'POST',
+            default: '"POST"',
           },
           {
             name: 'createTime',
@@ -43,6 +43,7 @@ export class CreateUrlcontrol1733473098124 implements MigrationInterface {
           },
         ],
       }),
+      true,
     );
   }
 

@@ -1,19 +1,8 @@
 services:
-    coin-admin:
-        build: 
-            context: ./
-            dockerfile: ./Dockerfile
-        # image: /home/backend/coin-admin
-        restart: always
-        depends_on:
-            - db
-        ports:
-            - "3000:3000"
-        networks:
-            - common-network
-
+ 
     db:
         image: mysql:8.0.40
+        container_name: coin-admin-db
         expose:
             - 3306
         ports:
@@ -27,6 +16,20 @@ services:
             MYSQL_DATABASE: bob
             MYSQL_USER: bobroot
             MYSQL_PASSWORD: infromation@admin@bobroot
+        networks:
+            - common-network
+
+ 
+    coin-admin:
+        build: 
+            context: ./
+            dockerfile: ./Dockerfile
+        # image: /home/backend/coin-admin
+        restart: always
+        depends_on:
+            - db
+        ports:
+            - "3000:3000"
         networks:
             - common-network
 
